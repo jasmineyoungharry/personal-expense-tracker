@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<ExpenseTracker.Models.Expense>
+
+    <h2>Expenses</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Amount</td>
+                <td>@item.Category</td>
+                <td>@item.Description</td>
+                <td>@item.Date.ToShortDateString()</td>
+            </tr>
+        }
+        </tbody>
+    </table>
