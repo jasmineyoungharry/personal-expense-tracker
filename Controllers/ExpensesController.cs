@@ -21,5 +21,24 @@ namespace ExpenseTracker.Controllers
             return View(expenses);
         }
 
+        // GET: Expenses/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Expenses/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Expense expense)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Expenses.Add(expense);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(expense);
+        }
     }
 }
