@@ -49,3 +49,18 @@ A full-stack web application built using ASP.NET Core MVC that allows users to t
 * Add authentication (user accounts)
 * Monthly expense summaries
 * Charts and analytics dashboard
+
+
+## Screenshots
+
+### Expense List
+![Expense List](images/home.png)
+
+### Add Expense
+![Add Expense](images/add.png)
+
+### Edit Expense
+![Edit Expense](images/edit.png)
+
+### Delete Expense
+![Delete Expense](images/delete.png)
