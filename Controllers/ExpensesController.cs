@@ -71,5 +71,30 @@ namespace ExpenseTracker.Controllers
 
             return View(expense);
         }
+
+        // GET: Expenses/Delete/5
+        public IActionResult Delete(int id)
+        {
+            var expense = _context.Expenses.Find(id);
+                if(expense == null)
+            {
+                return NotFound();
+            }
+            return View(expense);
+        }
+
+        // POST: Expenses/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var expense = _context.Expenses.Find(id);
+            if (expense  != null)
+            {
+                _context.Expenses.Remove(expense);
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
