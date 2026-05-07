@@ -12,7 +12,14 @@
 
     <div>
         <label>Category</label>
-        <input asp-for="Category" />
+        <select asp-for="Category" class="form-control">
+            <option value="">-- Select Category --</option>
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Entertainment</option>
+            <option>Bills</option>
+            <option>Other</option>
+        </select>
     </div>
 
     <div>
