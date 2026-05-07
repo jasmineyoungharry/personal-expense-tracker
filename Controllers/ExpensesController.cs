@@ -40,5 +40,36 @@ namespace ExpenseTracker.Controllers
             }
             return View(expense);
         }
+
+        // GET: Expenses/Edit/5
+        public IActionResult Edit(int id)
+        {
+            var expense = _context.Expenses.Find(id);
+            if (expense == null)
+            {
+                return NotFound();
+            }
+            return View(expense);
+        }
+
+        // POST: Expenses/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Expense expense)
+        {
+            if (id != expense.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(expense);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(expense);
+        }
     }
 }
