@@ -16,6 +16,7 @@
             @foreach (var item in Model)
             {
             <tr>
+                <h3>Total Spending: $@ViewBag.Total</h3>
                 <td>@item.Amount</td>
                 <td>@item.Category</td>
                 <td>@item.Description</td>
