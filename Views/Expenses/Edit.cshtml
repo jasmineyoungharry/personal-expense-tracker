@@ -2,16 +2,18 @@
 
 <h2>Edit Expense</h2>
 
+<div asp-validation-summary="All" class="text-danger"></div>
 <form asp-action="Edit">
     <input type="hidden" asp-for="Id" />
 
-    <div>
-        <label>Amount</label>
-        <input asp-for="Amount" />
+    <div class="mb-3">
+        <label asp-for="Amount"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
     </div>
 
-    <div>
-        <label>Category</label>
+    <div class="mb-3">
+        <label asp-for="Category"></label>
         <select asp-for="Category" class="form-control">
             <option value="">-- Select Category --</option>
             <option>Food</option>
@@ -20,16 +22,18 @@
             <option>Bills</option>
             <option>Other</option>
         </select>
+        <span asp-validation-for="Category" class="text-danger"></span>
     </div>
 
-    <div>
-        <label>Description</label>
-        <input asp-for="Description" />
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
     </div>
 
-    <div>
-        <label>Date</label>
-        <input asp-for="Date" type="date" />
+    <div class="mb-3">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
     </div>
 
     <div style="margin-top: 10px;">
